@@ -1,0 +1,43 @@
+
+defaultTasks 'clean', 'test', 'aggregate'
+
+
+
+repositories {
+    mavenCentral()
+mavenLocal()
+}
+
+buildscript {
+    repositories {
+        mavenLocal()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+        dependencies {
+        classpath("net.serenity-bdd:serenity-gradle-plugin:3.9.8")
+    }
+}
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'net.serenity-bdd.aggregator'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+dependencies {
+    Compile('net.serenity-bdd:serenity-core:3.9.8')
+    Compile('net.serenity-bdd:serenity-junit:3.9.8')
+    testCompile('junit:junit:4.12')
+    testCompile('org.assertj:assertj-core:1.7.0')
+    Compile('org.slf4j:slf4j-simple:1.7.7')
+
+}
+
+
+
+
+
+
+
+
+
